@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +9,34 @@ import { User } from '../models/user';
 })
 export class LoginComponent implements OnInit {
 
-  novoUsuario : User;
+  newUser : User;
   email : string;
-  senha : string;
+  password : string;
 
-  constructor() { }
+constructor(private auth : AuthService) { }
 
-  loginUsuario(){
-    this.novoUsuario = new User();
-    this.novoUsuario.email = this.email;
-    this.novoUsuario.senha = this.senha;
+  loginUser(){
+    if(this.newUser.email === ''&& this.newUser.password === ''){
+      alert ('Login e Senha Invalidos')
+    }else{
+      this.validateUser()
+       
+    }
   }
-//mandar pro service fazer a conexão com o back-end.
+  
+  validateUser(){
+    this.auth.isValid()
+  }
+  
 
   ngOnInit() {
+
   }
 
-}
+ //constructor() { }
+
+  //loginUsuario(){
+  //  this.novoUsuario = new User();
+   // this.novoUsuario.email = this.email;
+   // this.novoUsuario.password = this.password;
+ // }
