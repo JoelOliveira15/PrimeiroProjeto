@@ -1,0 +1,13 @@
+<div class="flex">  
+  <div class="item-flex">
+    <div class="jumbotron"> 
+      <p>LOGIN DE USUARIO</p>
+      <input type="text" placeholder="E-mail" [(ngModel)]="email">
+      <input type="password" placeholder="Senha" [(ngModel)]="senha">
+      <button class="btn btn-primary btn-block" (click)="loginUsuario()">Entrar</button>
+      <button class="btn btn-primary btn-block">Cadastrar-se</button>
+    </div>
+    <p>{{email}}</p>
+    <p>{{senha}}</p>
+  </div>
+</div>
